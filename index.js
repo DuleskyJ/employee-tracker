@@ -1,3 +1,4 @@
+// index.js
 const inquirer = require('inquirer');
 const db = require('./db/connection');
 const { viewAllDepartments, viewAllRoles, viewAllEmployees, addDepartment, addRole, addEmployee, updateEmployeeRole } = require('./utils/queries');
@@ -21,25 +22,25 @@ const mainMenu = () => {
   }).then(answer => {
     switch (answer.action) {
       case 'View all departments':
-        viewAllDepartments();
+        viewAllDepartments(mainMenu);
         break;
       case 'View all roles':
-        viewAllRoles();
+        viewAllRoles(mainMenu);
         break;
       case 'View all employees':
-        viewAllEmployees();
+        viewAllEmployees(mainMenu);
         break;
       case 'Add a department':
-        addDepartment();
+        addDepartment(mainMenu);
         break;
       case 'Add a role':
-        addRole();
+        addRole(mainMenu);
         break;
       case 'Add an employee':
-        addEmployee();
+        addEmployee(mainMenu);
         break;
       case 'Update an employee role':
-        updateEmployeeRole();
+        updateEmployeeRole(mainMenu);
         break;
       default:
         db.end();
@@ -48,3 +49,5 @@ const mainMenu = () => {
 };
 
 mainMenu();
+
+module.exports = { mainMenu };

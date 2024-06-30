@@ -1,32 +1,34 @@
+// queries.js
 const db = require('../db/connection');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
+const { mainMenu } = require('../index');
 
-const viewAllDepartments = () => {
+const viewAllDepartments = (callback) => {
   db.query('SELECT * FROM department', (err, results) => {
     if (err) throw err;
     console.table(results);
-    mainMenu();
+    if (callback) callback();
   });
 };
 
-const viewAllRoles = () => {
+const viewAllRoles = (callback) => {
   db.query('SELECT * FROM role', (err, results) => {
     if (err) throw err;
     console.table(results);
-    mainMenu();
+    if (callback) callback();
   });
 };
 
-const viewAllEmployees = () => {
+const viewAllEmployees = (callback) => {
   db.query('SELECT * FROM employee', (err, results) => {
     if (err) throw err;
     console.table(results);
-    mainMenu();
+    if (callback) callback();
   });
 };
 
-const addDepartment = () => {
+const addDepartment = (callback) => {
   inquirer.prompt({
     name: 'name',
     type: 'input',
@@ -35,12 +37,12 @@ const addDepartment = () => {
     db.query('INSERT INTO department SET ?', { name: answer.name }, (err) => {
       if (err) throw err;
       console.log('Department added successfully!');
-      mainMenu();
+      if (callback) callback();
     });
   });
 };
 
-const addRole = () => {
+const addRole = (callback) => {
   inquirer.prompt([
     {
       name: 'title',
@@ -65,12 +67,12 @@ const addRole = () => {
     }, (err) => {
       if (err) throw err;
       console.log('Role added successfully!');
-      mainMenu();
+      if (callback) callback();
     });
   });
 };
 
-const addEmployee = () => {
+const addEmployee = (callback) => {
   inquirer.prompt([
     {
       name: 'first_name',
@@ -101,12 +103,12 @@ const addEmployee = () => {
     }, (err) => {
       if (err) throw err;
       console.log('Employee added successfully!');
-      mainMenu();
+      if (callback) callback();
     });
   });
 };
 
-const updateEmployeeRole = () => {
+const updateEmployeeRole = (callback) => {
   inquirer.prompt([
     {
       name: 'employee_id',
@@ -122,7 +124,7 @@ const updateEmployeeRole = () => {
     db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answers.role_id, answers.employee_id], (err) => {
       if (err) throw err;
       console.log('Employee role updated successfully!');
-      mainMenu();
+      if (callback) callback();
     });
   });
 };
