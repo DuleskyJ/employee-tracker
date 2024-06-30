@@ -18,8 +18,8 @@ The Employee Tracker is a command-line application built using Node.js, Inquirer
 
 1. Clone the repository:
 
-   git clone https://github.com/DuleskyJ/employee-tracker.git
-   cd employee-tracker
+git clone https://github.com/DuleskyJ/employee-tracker.git
+cd employee-tracker
 
 Install dependencies:
 
