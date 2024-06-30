@@ -1,26 +1,26 @@
 USE employee_tracker;
 
-INSERT INTO department (name)
+INSERT INTO department (id, name)
 VALUES
-('Sales'),
-('Engineering'),
-('Finance'),
-('Legal');
+('DEPT_SALES', 'Sales'),
+('DEPT_ENG', 'Engineering'),
+('DEPT_FIN', 'Finance'),
+('DEPT_LEG', 'Legal');
 
-INSERT INTO role (title, salary, department_id) 
+INSERT INTO role (id, title, salary, department_id) 
 VALUES
-('Sales Lead', 100000, 1),
-('Salesperson', 80000, 1),
-('Software Engineer', 120000, 2),
-('Accountant', 90000, 3);
+('ROLE_SALES_LEAD', 'Sales Lead', 100000, 'DEPT_SALES'),
+('ROLE_SALESPERSON', 'Salesperson', 80000, 'DEPT_SALES'),
+('ROLE_SOFTWARE_ENGINEER', 'Software Engineer', 120000, 'DEPT_ENG'),
+('ROLE_ACCOUNTANT', 'Accountant', 90000, 'DEPT_FIN');
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id) 
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) 
 VALUES
-('John', 'Doe', 1, NULL),
-('Willy', 'Wonka', 2, 1),
-('Jaden', 'Dulesky', 3, NULL),
-('Joe', 'Mama', 4, NULL),
-('Tom', 'Brown', 1, 1),
-('Emma', 'Jones', 2, 2),
-('Chris', 'Davis', 3, 3),
-('Anna', 'Miller', 4, 4);
+('EMP_JD01', 'John', 'Doe', 'ROLE_SALES_LEAD', NULL),
+('EMP_WW02', 'Willy', 'Wonka', 'ROLE_SALESPERSON', 'EMP_JD01'),
+('EMP_JD03', 'Jaden', 'Dulesky', 'ROLE_SOFTWARE_ENGINEER', NULL),
+('EMP_JM04', 'Joe', 'Mama', 'ROLE_ACCOUNTANT', NULL),
+('EMP_TB05', 'Tom', 'Brady', 'ROLE_SALES_LEAD', 'EMP_JD01'),
+('EMP_EJ06', 'Terry', 'Crews', 'ROLE_SALESPERSON', 'EMP_WW02'),
+('EMP_CD07', 'Chris', 'Brown', 'ROLE_SOFTWARE_ENGINEER', 'EMP_JD03'),
+('EMP_AM08', 'Donald', 'Trump', 'ROLE_ACCOUNTANT', 'EMP_JM04');
