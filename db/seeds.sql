@@ -19,7 +19,7 @@ VALUES
 ('John', 'Doe', 1, NULL),
 ('Willy', 'Wonka', 2, 1),
 ('Jaden', 'Dulesky', 3, NULL),
-('Joe', 'Mama', 4, NULL);
+('Joe', 'Mama', 4, NULL),
 ('Tom', 'Brown', 1, 1),
 ('Emma', 'Jones', 2, 2),
 ('Chris', 'Davis', 3, 3),
