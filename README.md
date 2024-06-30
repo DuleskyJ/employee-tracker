@@ -45,7 +45,8 @@ Follow the prompts to view and manage departments, roles, and employees.
 View all departments, roles, and employees.
 Add departments, roles, and employees.
 Update employee roles.
-Technologies Used
+
+## Technologies Used
 Node.js
 Inquirer
 MySQL
