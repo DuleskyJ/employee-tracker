@@ -52,7 +52,7 @@ MySQL
 Console Table
 
 ## Walkthrough Video
-(https://www.loom.com/share/b9c9e21f7a464d9ab376519b3f87b1d8?sid=be9311a5-ccf3-426f-ae1a-80b7103fa6b8)
+(https://www.loom.com/share/57fc710a5e014616a58ca4ede8d4c676?sid=9289a1eb-f79e-4cb7-a58c-897e2331d28b)
 
 ## License
 This project is licensed under the MIT License.
